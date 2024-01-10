@@ -34,6 +34,8 @@ export class CheckoutComponent implements OnInit{
 
   ngOnInit(){
 
+    console.log("Checkout ngOnInit()");
+
     this.reviewCartDetails();
 
     this.checkoutFormGroup = this.formBuilder.group({

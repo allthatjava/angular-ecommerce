@@ -1,4 +1,7 @@
 import {AuthConfig } from 'angular-oauth2-oidc';
+import { environment } from 'src/environments/environment';
+
+const baseUrl = environment.baseUrl;
 
 export const authConfig: AuthConfig = {
         // clientId: '0oabn1refstdZUrrs5d7',
@@ -8,6 +11,6 @@ export const authConfig: AuthConfig = {
         clientId: 'b268aff959e193a63591',
         issuer: 'https://github.com/login/oauth/authorize',
         responseType:'code',
-        redirectUri: "http://localhost:4200/github-callback/",
+        redirectUri: baseUrl+"/github-callback/",
         scope: 'read:user'
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCategory } from 'src/app/common/product-category';
+import { AuthService } from 'src/app/services/auth.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class ProductCategoryMenuComponent implements OnInit{
 
   productCategories: ProductCategory[]=[];
 
-  constructor(private productService: ProductService){
+  constructor(private productService: ProductService, private authService:AuthService){
 
   }
 
@@ -20,6 +21,10 @@ export class ProductCategoryMenuComponent implements OnInit{
   }
 
   listProductCategories(){
+
+    console.log("Waiting for Token...");
+    this.authService.accessToken.subscribe((token) => console.log("Token:"+token));
+
     this.productService.getProductCategories().subscribe(
     (data) => {
       console.log("product Categories="+JSON.stringify(data));

@@ -13,6 +13,8 @@ export class GithubCallbackComponent implements OnInit{
   constructor(private route:ActivatedRoute, private authService:AuthService, private router: Router){}
 
   ngOnInit(){
+        console.log("Entering github-callback.component ngOnInit()");
+
         // To get the Access Token
         this.route.queryParams.subscribe((params) => {
           const code = params['code'];
@@ -25,11 +27,11 @@ export class GithubCallbackComponent implements OnInit{
               console.log("access_token:"+accessToken);
               this.authService.accessToken.next(accessToken);
 
-              // this.authService.accessToken.subscribe(
-              //   data=> {
-              //     this.code=data
-              //     console.log("accessToken:"+this.code);
-              //   });
+              this.authService.accessToken.subscribe(
+                data=> {
+                  this.code=data
+                  console.log("accessToken:"+this.code);
+                });
               this.router.navigateByUrl("");
             })
           }else{

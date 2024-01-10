@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit{
       
           // window.location.href = authUrl;
           const headers = new HttpHeaders({
-            'Access-Control-Allow-Origin': 'http://localhost:4200/',
+            'Access-Control-Allow-Origin': 'http://localhost:80/',
           })
 
           window.location.href=authUrl;

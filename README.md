@@ -5,10 +5,15 @@ Please checkout the following link backend code.
 [Spring Boot Backend code](https://github.com/allthatjava/spring-boot-ecommerce)
 ___
 
+
+* If you want to change the returnUrl by github login, go to __Settings > Developer settings > angular-ecommerce__ in github and update __Authorization callback URL__ as matching as `environment.ts` - __baseUrl__
+---
+
 ### Dockerize the application
 * Fill the Dockerfile something like followings
 ```
 FROM nginx:1.17.1-alpine
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY /dist/angular-ecommerce /usr/share/nginx/html
 ```
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { authConfig } from '../config/my-app-config';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ export class AuthService {
 
   private gitHubApiUrl = "https://github.com/login/oauth/access_token";
   private clientId= authConfig.clientId;
+  
+  private baseUrl = environment.baseUrl;
 
   public isAuthenticated: boolean = false;
   accessToken:Subject<string> = new BehaviorSubject<string>(null);
@@ -26,7 +29,7 @@ export class AuthService {
           client_id: this.clientId,
           client_secret: '862a5369561dcc503e86f57c1340176080bf7791',
           code: code,
-          redirect_uri: 'http://localhost:4200/github-callback/'
+          redirect_uri: this.baseUrl+'/github-callback/'
         },
         headers: {
           'Accept': 'application/json',
