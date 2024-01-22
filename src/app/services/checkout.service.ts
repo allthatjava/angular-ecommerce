@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CheckoutService {
   
-  private apiUrl = environment.apiUrl+"/api";
+  private apiUrl = environment.apiUrl;
 
   private purchaseUrl = this.apiUrl+"/api/checkout/purchase";
 

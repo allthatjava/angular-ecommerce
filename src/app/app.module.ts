@@ -21,6 +21,7 @@ import { authConfig } from './config/my-app-config';
 import { GithubCallbackComponent } from './components/login/github-callback/github-callback.component';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OnlyLoggedInUsersGuard } from './guard/member-guard.guard';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 // import {
 //   OktaAuthModule,
@@ -35,6 +36,7 @@ import { OnlyLoggedInUsersGuard } from './guard/member-guard.guard';
 // const oktaAuth= new OktaAuth(oktaConfig);
 
 const routes: Routes = [
+  {path:"order-history", component:OrderHistoryComponent, canActivate:[OnlyLoggedInUsersGuard]},
   {path:"members", component:MembersPageComponent, canActivate:[OnlyLoggedInUsersGuard]},
 
   {path:"github-callback", component:GithubCallbackComponent},
@@ -64,7 +66,8 @@ const routes: Routes = [
     LoginComponent,
     LoginStatusComponent,
     GithubCallbackComponent,
-    MembersPageComponent
+    MembersPageComponent,
+    OrderHistoryComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -17,6 +17,8 @@ export class LoginStatusComponent implements OnInit{
   userInfo: any;
   userName: string = '';
 
+  storage:Storage = sessionStorage;
+
   constructor(private oauthService: OAuthService, private route:ActivatedRoute, private authService: AuthService){
   }
 
@@ -44,6 +46,9 @@ export class LoginStatusComponent implements OnInit{
         this.userName=data.name;
         this.authService.isAuthenticated=true;
         this.isAuthenticated = this.authService.isAuthenticated;
+        const theEmail = data.email;
+        // store the userId in browser storage
+        this.storage.setItem("userEmail", JSON.stringify(theEmail));
       }
     );
   }

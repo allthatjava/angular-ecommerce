@@ -4,6 +4,7 @@ import { authConfig } from '../../config/my-app-config';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { v4 as uuidv4 } from 'uuid';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit{
       
           // window.location.href = authUrl;
           const headers = new HttpHeaders({
-            'Access-Control-Allow-Origin': 'http://localhost:80/',
+            'Access-Control-Allow-Origin': environment.baseUrl,
           })
 
           window.location.href=authUrl;
