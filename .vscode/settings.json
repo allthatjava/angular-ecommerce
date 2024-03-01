@@ -1,0 +1,9 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c08b4305-d8a4-4c14-8ac6-26017479845e/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/angular-test-app2",
+    "appService.deploySubpath": "dist\\angular-ecommerce",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.showBuildDuringDeployPrompt": false
+}
